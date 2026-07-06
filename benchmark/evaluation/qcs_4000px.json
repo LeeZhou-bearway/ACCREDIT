@@ -1,0 +1,444 @@
+{
+  "Breast_Cancer": {
+    "ours": {
+      "tissue_dice": 0.9101,
+      "boundary_dice": 0.6448,
+      "ncc": 0.5511,
+      "hausdorff_mean": 113.03,
+      "inlier_ratio": 0.2427,
+      "coverage": 0.6758,
+      "bg_coverage": 0.0056,
+      "qcs": 0.7145,
+      "nmi": 1.036,
+      "qcs_v1": 0.7749
+    },
+    "valis": {
+      "tissue_dice": 0.9031,
+      "boundary_dice": 0.6424,
+      "ncc": 0.3784,
+      "hausdorff_mean": 106.04,
+      "inlier_ratio": 0.1872,
+      "coverage": 0.6663,
+      "bg_coverage": 0.0059,
+      "qcs": 0.6938,
+      "nmi": 1.0161,
+      "qcs_v1": 0.7736
+    }
+  },
+  "Cervical_Cancer": {
+    "ours": {
+      "tissue_dice": 0.9963,
+      "boundary_dice": 0.8305,
+      "ncc": 0.6603,
+      "hausdorff_mean": 3.85,
+      "inlier_ratio": 0.2116,
+      "coverage": 0.74,
+      "bg_coverage": 0.0002,
+      "qcs": 0.8447,
+      "nmi": 1.048,
+      "qcs_v1": 0.9213
+    },
+    "valis": {
+      "tissue_dice": 0.9963,
+      "boundary_dice": 0.8272,
+      "ncc": 0.3346,
+      "hausdorff_mean": 3.59,
+      "inlier_ratio": 0.1683,
+      "coverage": 0.7408,
+      "bg_coverage": 0.0016,
+      "qcs": 0.8103,
+      "nmi": 1.0156,
+      "qcs_v1": 0.9186
+    }
+  },
+  "Lung_Cancer_Prime": {
+    "ours": {
+      "tissue_dice": 0.9654,
+      "boundary_dice": 0.7341,
+      "ncc": 0.5918,
+      "hausdorff_mean": 13.25,
+      "inlier_ratio": 0.1512,
+      "coverage": 0.5992,
+      "bg_coverage": 0.0004,
+      "qcs": 0.7964,
+      "nmi": 1.0408,
+      "qcs_v1": 0.8656
+    },
+    "valis": {
+      "tissue_dice": 0.9645,
+      "boundary_dice": 0.7289,
+      "ncc": 0.4156,
+      "hausdorff_mean": 13.88,
+      "inlier_ratio": 0.1074,
+      "coverage": 0.5988,
+      "bg_coverage": 0.0014,
+      "qcs": 0.7438,
+      "nmi": 1.0194,
+      "qcs_v1": 0.8336
+    }
+  },
+  "Ovary": {
+    "ours": {
+      "tissue_dice": 0.9966,
+      "boundary_dice": 0.8469,
+      "ncc": 0.7519,
+      "hausdorff_mean": 4.07,
+      "inlier_ratio": 0.4061,
+      "coverage": 0.7148,
+      "bg_coverage": 0.0009,
+      "qcs": 0.8701,
+      "nmi": 1.0691,
+      "qcs_v1": 0.928
+    },
+    "valis": {
+      "tissue_dice": 0.9965,
+      "boundary_dice": 0.84,
+      "ncc": 0.4477,
+      "hausdorff_mean": 4.0,
+      "inlier_ratio": 0.4825,
+      "coverage": 0.7154,
+      "bg_coverage": 0.0024,
+      "qcs": 0.8231,
+      "nmi": 1.0253,
+      "qcs_v1": 0.9235
+    }
+  },
+  "Mouse_Brain": {
+    "ours": {
+      "tissue_dice": 0.8951,
+      "boundary_dice": 0.7088,
+      "ncc": 0.6855,
+      "hausdorff_mean": 20.4,
+      "inlier_ratio": 0.031,
+      "coverage": 0.612,
+      "bg_coverage": 0.0019,
+      "qcs": 0.6814,
+      "nmi": 1.037,
+      "qcs_v1": 0.7506
+    },
+    "valis": {
+      "tissue_dice": 0.8832,
+      "boundary_dice": 0.7019,
+      "ncc": 0.4777,
+      "hausdorff_mean": 22.14,
+      "inlier_ratio": 0.0529,
+      "coverage": 0.598,
+      "bg_coverage": 0.003,
+      "qcs": 0.6775,
+      "nmi": 1.0254,
+      "qcs_v1": 0.7571
+    }
+  },
+  "BoneMarrow": {
+    "ours": {
+      "tissue_dice": 0.9094,
+      "boundary_dice": 0.6649,
+      "ncc": 0.6323,
+      "hausdorff_mean": 30.75,
+      "inlier_ratio": 0.2842,
+      "coverage": 0.3632,
+      "bg_coverage": 0.0073,
+      "qcs": 0.7946,
+      "nmi": 1.0874,
+      "qcs_v1": 0.8068
+    },
+    "valis": {
+      "tissue_dice": 0.9074,
+      "boundary_dice": 0.6627,
+      "ncc": 0.5001,
+      "hausdorff_mean": 30.83,
+      "inlier_ratio": 0.2146,
+      "coverage": 0.3602,
+      "bg_coverage": 0.0058,
+      "qcs": 0.7649,
+      "nmi": 1.0576,
+      "qcs_v1": 0.8065
+    }
+  },
+  "Liver": {
+    "ours": {
+      "tissue_dice": 0.9923,
+      "boundary_dice": 0.7634,
+      "ncc": 0.4104,
+      "hausdorff_mean": 6.92,
+      "inlier_ratio": 0.0026,
+      "coverage": 0.618,
+      "bg_coverage": 0.0012,
+      "qcs": 0.7118,
+      "nmi": 1.0363,
+      "qcs_v1": 0.7899
+    },
+    "valis": {
+      "tissue_dice": 0.9517,
+      "boundary_dice": 0.6439,
+      "ncc": 0.0922,
+      "hausdorff_mean": 52.0,
+      "inlier_ratio": 0.0031,
+      "coverage": 0.6085,
+      "bg_coverage": 0.0546,
+      "qcs": 0.5831,
+      "nmi": 1.0016,
+      "qcs_v1": 0.6729
+    }
+  },
+  "Pancreas_Cancer": {
+    "ours": {
+      "tissue_dice": 0.9278,
+      "boundary_dice": 0.5778,
+      "ncc": 0.119,
+      "hausdorff_mean": 41.49,
+      "inlier_ratio": 0.1025,
+      "coverage": 0.5954,
+      "bg_coverage": 0.012,
+      "qcs": 0.682,
+      "nmi": 1.0327,
+      "qcs_v1": 0.7353
+    },
+    "valis": {
+      "tissue_dice": 0.9471,
+      "boundary_dice": 0.6308,
+      "ncc": 0.3284,
+      "hausdorff_mean": 31.26,
+      "inlier_ratio": 0.0744,
+      "coverage": 0.6321,
+      "bg_coverage": 0.0014,
+      "qcs": 0.6869,
+      "nmi": 1.0243,
+      "qcs_v1": 0.7572
+    }
+  },
+  "Colorectal_Cancer": {
+    "ours": {
+      "tissue_dice": 0.9124,
+      "boundary_dice": 0.7105,
+      "ncc": 0.726,
+      "hausdorff_mean": 37.33,
+      "inlier_ratio": 0.2443,
+      "coverage": 0.4366,
+      "bg_coverage": 0.0014,
+      "qcs": 0.8067,
+      "nmi": 1.0822,
+      "qcs_v1": 0.8311
+    },
+    "valis": {
+      "tissue_dice": 0.9128,
+      "boundary_dice": 0.7101,
+      "ncc": 0.6333,
+      "hausdorff_mean": 38.52,
+      "inlier_ratio": 0.2055,
+      "coverage": 0.437,
+      "bg_coverage": 0.0013,
+      "qcs": 0.7752,
+      "nmi": 1.0509,
+      "qcs_v1": 0.8307
+    }
+  },
+  "Kidney": {
+    "ours": {
+      "tissue_dice": 0.9919,
+      "boundary_dice": 0.8354,
+      "ncc": 0.7144,
+      "hausdorff_mean": 6.32,
+      "inlier_ratio": 0.3404,
+      "coverage": 0.5593,
+      "bg_coverage": 0.0013,
+      "qcs": 0.8486,
+      "nmi": 1.0534,
+      "qcs_v1": 0.9204
+    },
+    "valis": {
+      "tissue_dice": 0.9911,
+      "boundary_dice": 0.8201,
+      "ncc": 0.4165,
+      "hausdorff_mean": 6.41,
+      "inlier_ratio": 0.3387,
+      "coverage": 0.5591,
+      "bg_coverage": 0.0032,
+      "qcs": 0.8079,
+      "nmi": 1.0191,
+      "qcs_v1": 0.9115
+    }
+  },
+  "Pancreas": {
+    "ours": {
+      "tissue_dice": 0.975,
+      "boundary_dice": 0.754,
+      "ncc": 0.7227,
+      "hausdorff_mean": 7.41,
+      "inlier_ratio": 0.2047,
+      "coverage": 0.571,
+      "bg_coverage": 0.0004,
+      "qcs": 0.8241,
+      "nmi": 1.058,
+      "qcs_v1": 0.8793
+    },
+    "valis": {
+      "tissue_dice": 0.9739,
+      "boundary_dice": 0.7473,
+      "ncc": 0.5185,
+      "hausdorff_mean": 8.31,
+      "inlier_ratio": 0.2587,
+      "coverage": 0.5709,
+      "bg_coverage": 0.0004,
+      "qcs": 0.798,
+      "nmi": 1.0345,
+      "qcs_v1": 0.8757
+    }
+  },
+  "Skin": {
+    "ours": {
+      "tissue_dice": 0.7562,
+      "boundary_dice": 0.6058,
+      "ncc": 0.6841,
+      "hausdorff_mean": 14.72,
+      "inlier_ratio": 0.1411,
+      "coverage": 0.2865,
+      "bg_coverage": 0.0003,
+      "qcs": 0.7115,
+      "nmi": 1.0635,
+      "qcs_v1": 0.7389
+    },
+    "valis": {
+      "tissue_dice": 0.7565,
+      "boundary_dice": 0.6025,
+      "ncc": 0.3415,
+      "hausdorff_mean": 14.14,
+      "inlier_ratio": 0.0998,
+      "coverage": 0.2875,
+      "bg_coverage": 0.0006,
+      "qcs": 0.6374,
+      "nmi": 1.0178,
+      "qcs_v1": 0.7099
+    }
+  },
+  "Heart": {
+    "ours": {
+      "tissue_dice": 0.8009,
+      "boundary_dice": 0.6743,
+      "ncc": 0.5467,
+      "hausdorff_mean": 53.87,
+      "inlier_ratio": 0.1084,
+      "coverage": 0.4926,
+      "bg_coverage": 0.0009,
+      "qcs": 0.7561,
+      "nmi": 1.1081,
+      "qcs_v1": 0.7491
+    },
+    "valis": {
+      "tissue_dice": 0.7432,
+      "boundary_dice": 0.6593,
+      "ncc": 0.4277,
+      "hausdorff_mean": 82.7,
+      "inlier_ratio": 0.0833,
+      "coverage": 0.4357,
+      "bg_coverage": 0.0002,
+      "qcs": 0.6935,
+      "nmi": 1.0922,
+      "qcs_v1": 0.7003
+    }
+  },
+  "humanLung": {
+    "ours": {
+      "tissue_dice": 0.9783,
+      "boundary_dice": 0.7907,
+      "ncc": 0.2861,
+      "hausdorff_mean": 24.09,
+      "inlier_ratio": 0.1131,
+      "coverage": 0.4272,
+      "bg_coverage": 0.0058,
+      "qcs": 0.7801,
+      "nmi": 1.0358,
+      "qcs_v1": 0.8624
+    },
+    "valis": {
+      "tissue_dice": 0.9812,
+      "boundary_dice": 0.8184,
+      "ncc": 0.4428,
+      "hausdorff_mean": 27.51,
+      "inlier_ratio": 0.0769,
+      "coverage": 0.429,
+      "bg_coverage": 0.0052,
+      "qcs": 0.7579,
+      "nmi": 1.029,
+      "qcs_v1": 0.8513
+    }
+  },
+  "Prostate": {
+    "ours": {
+      "tissue_dice": 0.813,
+      "boundary_dice": 0.592,
+      "ncc": 0.4573,
+      "hausdorff_mean": 92.78,
+      "inlier_ratio": 0.1033,
+      "coverage": 0.3705,
+      "bg_coverage": 0.0002,
+      "qcs": 0.6454,
+      "nmi": 1.033,
+      "qcs_v1": 0.7012
+    },
+    "valis": {
+      "tissue_dice": 0.8126,
+      "boundary_dice": 0.5947,
+      "ncc": 0.3151,
+      "hausdorff_mean": 92.06,
+      "inlier_ratio": 0.0733,
+      "coverage": 0.3715,
+      "bg_coverage": 0.0003,
+      "qcs": 0.6067,
+      "nmi": 1.0134,
+      "qcs_v1": 0.6824
+    }
+  },
+  "Rep1": {
+    "ours": {
+      "tissue_dice": 0.9168,
+      "boundary_dice": 0.6375,
+      "ncc": 0.5753,
+      "hausdorff_mean": 40.35,
+      "inlier_ratio": 0.2207,
+      "coverage": 0.3434,
+      "bg_coverage": 0.0141,
+      "qcs": 0.7451,
+      "nmi": 1.0516,
+      "qcs_v1": 0.7885
+    },
+    "valis": {
+      "tissue_dice": 0.6455,
+      "boundary_dice": 0.5486,
+      "ncc": -0.0407,
+      "hausdorff_mean": 315.81,
+      "inlier_ratio": 0.0039,
+      "coverage": 0.3883,
+      "bg_coverage": 0.1869,
+      "qcs": 0.3399,
+      "nmi": 1.002,
+      "qcs_v1": 0.4052
+    }
+  },
+  "Rep2": {
+    "ours": {
+      "tissue_dice": 0.901,
+      "boundary_dice": 0.6427,
+      "ncc": 0.7242,
+      "hausdorff_mean": 94.52,
+      "inlier_ratio": 0.2207,
+      "coverage": 0.2848,
+      "bg_coverage": 0.0171,
+      "qcs": 0.7464,
+      "nmi": 1.0746,
+      "qcs_v1": 0.7679
+    },
+    "valis": {
+      "tissue_dice": 0.3984,
+      "boundary_dice": 0.4713,
+      "ncc": 0.0324,
+      "hausdorff_mean": 476.54,
+      "inlier_ratio": 0.0043,
+      "coverage": 0.3058,
+      "bg_coverage": 0.3147,
+      "qcs": 0.1869,
+      "nmi": 1.0019,
+      "qcs_v1": 0.2341
+    }
+  }
+}

@@ -1,0 +1,688 @@
+{
+  "Breast_Cancer": {
+    "dhr": {
+      "tissue_dice": 0.7633,
+      "boundary_dice": 0.5931,
+      "ncc": 0.1043,
+      "hausdorff_mean": 200.53,
+      "inlier_ratio": 0.1619,
+      "nmi": 1.0054,
+      "coverage": 0.5925,
+      "bg_coverage": 0.3015,
+      "qcs": 0.4206
+    },
+    "voltron": {
+      "tissue_dice": 0.4858,
+      "boundary_dice": 0.5872,
+      "ncc": -0.0307,
+      "hausdorff_mean": 722.82,
+      "inlier_ratio": 0.0045,
+      "nmi": 1.0012,
+      "coverage": 0.3581,
+      "bg_coverage": 0.391,
+      "qcs": 0.1986
+    },
+    "simpleitk": {
+      "tissue_dice": 0.8768,
+      "boundary_dice": 0.6078,
+      "ncc": 0.0948,
+      "hausdorff_mean": 116.87,
+      "inlier_ratio": 0.2157,
+      "nmi": 1.0043,
+      "coverage": 0.6875,
+      "bg_coverage": 0.1776,
+      "qcs": 0.5466
+    },
+    "palom": {
+      "tissue_dice": 0.1129,
+      "boundary_dice": 0.2907,
+      "ncc": 0.0082,
+      "hausdorff_mean": 44.44,
+      "inlier_ratio": 0.1143,
+      "nmi": 1.0074,
+      "coverage": 0.0016,
+      "bg_coverage": 0.0077,
+      "qcs": 0.0028
+    }
+  },
+  "Cervical_Cancer": {
+    "dhr": {
+      "tissue_dice": 0.9924,
+      "boundary_dice": 0.7555,
+      "ncc": 0.3499,
+      "hausdorff_mean": 6.15,
+      "inlier_ratio": 0.1704,
+      "nmi": 1.0122,
+      "coverage": 0.7362,
+      "bg_coverage": 0.0044,
+      "qcs": 0.7812
+    },
+    "voltron": {
+      "tissue_dice": 0.6045,
+      "boundary_dice": 0.5842,
+      "ncc": 0.0134,
+      "hausdorff_mean": 333.14,
+      "inlier_ratio": 0.0156,
+      "nmi": 1.0014,
+      "coverage": 0.4746,
+      "bg_coverage": 0.4196,
+      "qcs": 0.2428
+    },
+    "simpleitk": null,
+    "palom": {
+      "tissue_dice": 0.0133,
+      "boundary_dice": 0.0985,
+      "ncc": -0.0066,
+      "hausdorff_mean": 142.35,
+      "inlier_ratio": 0.1042,
+      "nmi": 1.0249,
+      "coverage": 0.0006,
+      "bg_coverage": 0.0022,
+      "qcs": 0.0007
+    }
+  },
+  "Lung_Cancer_Prime": {
+    "dhr": {
+      "tissue_dice": 0.9499,
+      "boundary_dice": 0.6992,
+      "ncc": 0.2304,
+      "hausdorff_mean": 17.78,
+      "inlier_ratio": 0.1172,
+      "nmi": 1.0049,
+      "coverage": 0.5901,
+      "bg_coverage": 0.0126,
+      "qcs": 0.7133
+    },
+    "voltron": {
+      "tissue_dice": 0.5767,
+      "boundary_dice": 0.5498,
+      "ncc": 0.0306,
+      "hausdorff_mean": 341.7,
+      "inlier_ratio": 0.0101,
+      "nmi": 1.0017,
+      "coverage": 0.4702,
+      "bg_coverage": 0.4184,
+      "qcs": 0.2291
+    },
+    "simpleitk": null,
+    "palom": {
+      "tissue_dice": 0.6679,
+      "boundary_dice": 0.6236,
+      "ncc": -0.0037,
+      "hausdorff_mean": 222.69,
+      "inlier_ratio": 0.0045,
+      "nmi": 1.0002,
+      "coverage": 0.3928,
+      "bg_coverage": 0.1339,
+      "qcs": 0.4105
+    }
+  },
+  "Ovary": {
+    "dhr": {
+      "tissue_dice": 0.9486,
+      "boundary_dice": 0.654,
+      "ncc": 0.2431,
+      "hausdorff_mean": 26.09,
+      "inlier_ratio": 0.4299,
+      "nmi": 1.0121,
+      "coverage": 0.6605,
+      "bg_coverage": 0.0217,
+      "qcs": 0.7191
+    },
+    "voltron": {
+      "tissue_dice": 0.5065,
+      "boundary_dice": 0.529,
+      "ncc": 0.0065,
+      "hausdorff_mean": 483.26,
+      "inlier_ratio": 0.008,
+      "nmi": 1.0017,
+      "coverage": 0.3877,
+      "bg_coverage": 0.4059,
+      "qcs": 0.1917
+    },
+    "simpleitk": {
+      "tissue_dice": 0.8433,
+      "boundary_dice": 0.6123,
+      "ncc": 0.0181,
+      "hausdorff_mean": 110.94,
+      "inlier_ratio": 0.2529,
+      "nmi": 1.001,
+      "coverage": 0.2327,
+      "bg_coverage": 0.0145,
+      "qcs": 0.6449
+    },
+    "palom": {
+      "tissue_dice": 0.0465,
+      "boundary_dice": 0.4457,
+      "ncc": 0.0419,
+      "hausdorff_mean": 155.87,
+      "inlier_ratio": 0.0329,
+      "nmi": 1.0089,
+      "coverage": 0.002,
+      "bg_coverage": 0.0009,
+      "qcs": 0.0028
+    }
+  },
+  "Mouse_Brain": {
+    "dhr": {
+      "tissue_dice": 0.8707,
+      "boundary_dice": 0.6836,
+      "ncc": 0.1304,
+      "hausdorff_mean": 30.46,
+      "inlier_ratio": 0.0416,
+      "nmi": 1.0025,
+      "coverage": 0.5909,
+      "bg_coverage": 0.0191,
+      "qcs": 0.6251
+    },
+    "voltron": null,
+    "simpleitk": {
+      "tissue_dice": 0.86,
+      "boundary_dice": 0.6239,
+      "ncc": 0.0076,
+      "hausdorff_mean": 129.47,
+      "inlier_ratio": 0.0025,
+      "nmi": 1.0001,
+      "coverage": 0.3451,
+      "bg_coverage": 0.0048,
+      "qcs": 0.5555
+    },
+    "palom": {
+      "tissue_dice": 0.0,
+      "boundary_dice": 0.0,
+      "ncc": 0.0,
+      "hausdorff_mean": 70.26,
+      "inlier_ratio": 0.5,
+      "nmi": 1.034,
+      "coverage": 0.0004,
+      "bg_coverage": 0.0017,
+      "qcs": 0.0006
+    }
+  },
+  "BoneMarrow": {
+    "dhr": {
+      "tissue_dice": 0.872,
+      "boundary_dice": 0.6046,
+      "ncc": 0.2918,
+      "hausdorff_mean": 38.18,
+      "inlier_ratio": 0.21,
+      "nmi": 1.0352,
+      "coverage": 0.3381,
+      "bg_coverage": 0.0086,
+      "qcs": 0.7106
+    },
+    "voltron": {
+      "tissue_dice": 0.5405,
+      "boundary_dice": 0.4833,
+      "ncc": 0.0165,
+      "hausdorff_mean": 134.12,
+      "inlier_ratio": 0.0105,
+      "nmi": 1.0084,
+      "coverage": 0.2396,
+      "bg_coverage": 0.1301,
+      "qcs": 0.376
+    },
+    "simpleitk": {
+      "tissue_dice": 0.416,
+      "boundary_dice": 0.54,
+      "ncc": -0.0756,
+      "hausdorff_mean": 287.57,
+      "inlier_ratio": 0.0,
+      "nmi": 1.0151,
+      "coverage": 0.6728,
+      "bg_coverage": 0.7752,
+      "qcs": 0.0822
+    },
+    "palom": {
+      "tissue_dice": 0.1416,
+      "boundary_dice": 0.4038,
+      "ncc": -0.1444,
+      "hausdorff_mean": 234.93,
+      "inlier_ratio": 0.2308,
+      "nmi": 1.0118,
+      "coverage": 0.145,
+      "bg_coverage": 0.2199,
+      "qcs": 0.2008
+    }
+  },
+  "Liver": {
+    "dhr": {
+      "tissue_dice": 0.9805,
+      "boundary_dice": 0.5987,
+      "ncc": 0.027,
+      "hausdorff_mean": 15.45,
+      "inlier_ratio": 0.0056,
+      "nmi": 1.0013,
+      "coverage": 0.6338,
+      "bg_coverage": 0.0415,
+      "qcs": 0.5982
+    },
+    "voltron": {
+      "tissue_dice": 0.4379,
+      "boundary_dice": 0.5379,
+      "ncc": -0.0071,
+      "hausdorff_mean": 367.39,
+      "inlier_ratio": 0.0071,
+      "nmi": 1.0008,
+      "coverage": 0.1617,
+      "bg_coverage": 0.1723,
+      "qcs": 0.2263
+    },
+    "simpleitk": {
+      "tissue_dice": 0.6973,
+      "boundary_dice": 0.6084,
+      "ncc": -0.0014,
+      "hausdorff_mean": 309.53,
+      "inlier_ratio": 0.0035,
+      "nmi": 1.0004,
+      "coverage": 0.4645,
+      "bg_coverage": 0.4101,
+      "qcs": 0.2664
+    },
+    "palom": {
+      "tissue_dice": 0.2433,
+      "boundary_dice": 0.5857,
+      "ncc": 0.0054,
+      "hausdorff_mean": 161.22,
+      "inlier_ratio": 0.0102,
+      "nmi": 1.0022,
+      "coverage": 0.0101,
+      "bg_coverage": 0.0063,
+      "qcs": 0.018
+    }
+  },
+  "Colorectal_Cancer": {
+    "dhr": {
+      "tissue_dice": 0.8886,
+      "boundary_dice": 0.6656,
+      "ncc": 0.5418,
+      "hausdorff_mean": 52.49,
+      "inlier_ratio": 0.2199,
+      "nmi": 1.0339,
+      "coverage": 0.424,
+      "bg_coverage": 0.0095,
+      "qcs": 0.7275
+    },
+    "voltron": {
+      "tissue_dice": 0.5994,
+      "boundary_dice": 0.5602,
+      "ncc": 0.0559,
+      "hausdorff_mean": 495.8,
+      "inlier_ratio": 0.0286,
+      "nmi": 1.0017,
+      "coverage": 0.531,
+      "bg_coverage": 0.4908,
+      "qcs": 0.1884
+    },
+    "simpleitk": {
+      "tissue_dice": 0.7382,
+      "boundary_dice": 0.5839,
+      "ncc": 0.096,
+      "hausdorff_mean": 76.58,
+      "inlier_ratio": 0.0791,
+      "nmi": 1.0012,
+      "coverage": 0.1264,
+      "bg_coverage": 0.0663,
+      "qcs": 0.3409
+    },
+    "palom": {
+      "tissue_dice": 0.0276,
+      "boundary_dice": 0.239,
+      "ncc": -0.0114,
+      "hausdorff_mean": 282.33,
+      "inlier_ratio": 0.026,
+      "nmi": 1.0077,
+      "coverage": 0.0036,
+      "bg_coverage": 0.0026,
+      "qcs": 0.0031
+    }
+  },
+  "Kidney": {
+    "dhr": {
+      "tissue_dice": 0.9853,
+      "boundary_dice": 0.7414,
+      "ncc": 0.4051,
+      "hausdorff_mean": 11.07,
+      "inlier_ratio": 0.3093,
+      "nmi": 1.0152,
+      "coverage": 0.5622,
+      "bg_coverage": 0.0129,
+      "qcs": 0.7698
+    },
+    "voltron": {
+      "tissue_dice": 0.6782,
+      "boundary_dice": 0.5909,
+      "ncc": 0.0685,
+      "hausdorff_mean": 216.57,
+      "inlier_ratio": 0.003,
+      "nmi": 1.0012,
+      "coverage": 0.4303,
+      "bg_coverage": 0.1941,
+      "qcs": 0.378
+    },
+    "simpleitk": {
+      "tissue_dice": 0.8679,
+      "boundary_dice": 0.6668,
+      "ncc": -0.0155,
+      "hausdorff_mean": 85.66,
+      "inlier_ratio": 0.2244,
+      "nmi": 1.0007,
+      "coverage": 0.4583,
+      "bg_coverage": 0.2981,
+      "qcs": 0.4811
+    },
+    "palom": {
+      "tissue_dice": 0.5616,
+      "boundary_dice": 0.5652,
+      "ncc": -0.0423,
+      "hausdorff_mean": 73.03,
+      "inlier_ratio": 0.0058,
+      "nmi": 1.001,
+      "coverage": 0.0479,
+      "bg_coverage": 0.0839,
+      "qcs": 0.1033
+    }
+  },
+  "Pancreas": {
+    "dhr": {
+      "tissue_dice": 0.9225,
+      "boundary_dice": 0.6602,
+      "ncc": 0.184,
+      "hausdorff_mean": 42.97,
+      "inlier_ratio": 0.2453,
+      "nmi": 1.0072,
+      "coverage": 0.5517,
+      "bg_coverage": 0.0234,
+      "qcs": 0.7023
+    },
+    "voltron": {
+      "tissue_dice": 0.4814,
+      "boundary_dice": 0.5359,
+      "ncc": 0.0031,
+      "hausdorff_mean": 299.78,
+      "inlier_ratio": 0.0201,
+      "nmi": 1.0004,
+      "coverage": 0.1868,
+      "bg_coverage": 0.0928,
+      "qcs": 0.3211
+    },
+    "simpleitk": {
+      "tissue_dice": 0.8805,
+      "boundary_dice": 0.6647,
+      "ncc": -0.0091,
+      "hausdorff_mean": 112.12,
+      "inlier_ratio": 0.1254,
+      "nmi": 1.0005,
+      "coverage": 0.3742,
+      "bg_coverage": 0.2242,
+      "qcs": 0.5151
+    },
+    "palom": {
+      "tissue_dice": 0.9626,
+      "boundary_dice": 0.7117,
+      "ncc": 0.3492,
+      "hausdorff_mean": 11.87,
+      "inlier_ratio": 0.2074,
+      "nmi": 1.0158,
+      "coverage": 0.5575,
+      "bg_coverage": 0.0027,
+      "qcs": 0.7624
+    }
+  },
+  "Skin": {
+    "dhr": {
+      "tissue_dice": 0.5394,
+      "boundary_dice": 0.5629,
+      "ncc": 0.0154,
+      "hausdorff_mean": 322.0,
+      "inlier_ratio": 0.0071,
+      "nmi": 1.0004,
+      "coverage": 0.5969,
+      "bg_coverage": 0.6542,
+      "qcs": 0.1346
+    },
+    "voltron": {
+      "tissue_dice": 0.5124,
+      "boundary_dice": 0.5315,
+      "ncc": -0.041,
+      "hausdorff_mean": 188.56,
+      "inlier_ratio": 0.0077,
+      "nmi": 1.0006,
+      "coverage": 0.1795,
+      "bg_coverage": 0.1611,
+      "qcs": 0.3104
+    },
+    "simpleitk": {
+      "tissue_dice": 0.6446,
+      "boundary_dice": 0.5267,
+      "ncc": 0.0122,
+      "hausdorff_mean": 486.04,
+      "inlier_ratio": 0.0036,
+      "nmi": 1.0008,
+      "coverage": 0.5882,
+      "bg_coverage": 0.4992,
+      "qcs": 0.1797
+    },
+    "palom": {
+      "tissue_dice": 0.7421,
+      "boundary_dice": 0.5889,
+      "ncc": 0.018,
+      "hausdorff_mean": 311.11,
+      "inlier_ratio": 0.0031,
+      "nmi": 1.0004,
+      "coverage": 0.1474,
+      "bg_coverage": 0.0829,
+      "qcs": 0.3099
+    }
+  },
+  "Heart": {
+    "dhr": {
+      "tissue_dice": 0.7767,
+      "boundary_dice": 0.666,
+      "ncc": 0.2256,
+      "hausdorff_mean": 60.51,
+      "inlier_ratio": 0.0764,
+      "nmi": 1.0634,
+      "coverage": 0.4738,
+      "bg_coverage": 0.0127,
+      "qcs": 0.6704
+    },
+    "voltron": {
+      "tissue_dice": 0.8157,
+      "boundary_dice": 0.6005,
+      "ncc": 0.0333,
+      "hausdorff_mean": 187.19,
+      "inlier_ratio": 0.0039,
+      "nmi": 1.0021,
+      "coverage": 0.5144,
+      "bg_coverage": 0.1865,
+      "qcs": 0.4258
+    },
+    "simpleitk": {
+      "tissue_dice": 0.8217,
+      "boundary_dice": 0.7158,
+      "ncc": -0.0042,
+      "hausdorff_mean": 14.2,
+      "inlier_ratio": 0.04,
+      "nmi": 1.0096,
+      "coverage": 0.0035,
+      "bg_coverage": 0.0,
+      "qcs": 0.0114
+    },
+    "palom": {
+      "tissue_dice": 0.6179,
+      "boundary_dice": 0.5478,
+      "ncc": 0.0013,
+      "hausdorff_mean": 193.16,
+      "inlier_ratio": 0.0068,
+      "nmi": 1.0108,
+      "coverage": 0.1839,
+      "bg_coverage": 0.2881,
+      "qcs": 0.2993
+    }
+  },
+  "humanLung": {
+    "dhr": {
+      "tissue_dice": 0.9428,
+      "boundary_dice": 0.5931,
+      "ncc": 0.1404,
+      "hausdorff_mean": 35.09,
+      "inlier_ratio": 0.0855,
+      "nmi": 1.0056,
+      "coverage": 0.4275,
+      "bg_coverage": 0.0382,
+      "qcs": 0.6375
+    },
+    "voltron": {
+      "tissue_dice": 0.6346,
+      "boundary_dice": 0.5077,
+      "ncc": -0.0033,
+      "hausdorff_mean": 155.31,
+      "inlier_ratio": 0.0073,
+      "nmi": 1.0016,
+      "coverage": 0.6696,
+      "bg_coverage": 0.5972,
+      "qcs": 0.1823
+    },
+    "simpleitk": {
+      "tissue_dice": 0.3735,
+      "boundary_dice": 0.5416,
+      "ncc": -0.2491,
+      "hausdorff_mean": 522.8,
+      "inlier_ratio": 0.0,
+      "nmi": 1.0283,
+      "coverage": 0.2987,
+      "bg_coverage": 0.2993,
+      "qcs": 0.2122
+    },
+    "palom": {
+      "tissue_dice": 0.0717,
+      "boundary_dice": 0.2196,
+      "ncc": 0.03,
+      "hausdorff_mean": 107.57,
+      "inlier_ratio": 0.043,
+      "nmi": 1.0109,
+      "coverage": 0.0065,
+      "bg_coverage": 0.0094,
+      "qcs": 0.0079
+    }
+  },
+  "Prostate": {
+    "dhr": {
+      "tissue_dice": 0.7928,
+      "boundary_dice": 0.5387,
+      "ncc": 0.0657,
+      "hausdorff_mean": 100.73,
+      "inlier_ratio": 0.0923,
+      "nmi": 1.0023,
+      "coverage": 0.3686,
+      "bg_coverage": 0.011,
+      "qcs": 0.5767
+    },
+    "voltron": {
+      "tissue_dice": 0.584,
+      "boundary_dice": 0.5511,
+      "ncc": 0.0418,
+      "hausdorff_mean": 268.16,
+      "inlier_ratio": 0.0266,
+      "nmi": 1.0012,
+      "coverage": 0.492,
+      "bg_coverage": 0.4586,
+      "qcs": 0.2323
+    },
+    "simpleitk": {
+      "tissue_dice": 0.6747,
+      "boundary_dice": 0.6121,
+      "ncc": 0.009,
+      "hausdorff_mean": 185.11,
+      "inlier_ratio": 0.073,
+      "nmi": 1.0005,
+      "coverage": 0.2669,
+      "bg_coverage": 0.2915,
+      "qcs": 0.3752
+    },
+    "palom": {
+      "tissue_dice": 0.4434,
+      "boundary_dice": 0.5467,
+      "ncc": 0.0282,
+      "hausdorff_mean": 188.95,
+      "inlier_ratio": 0.0107,
+      "nmi": 1.001,
+      "coverage": 0.0901,
+      "bg_coverage": 0.0958,
+      "qcs": 0.1623
+    }
+  },
+  "Rep1": {
+    "dhr": {
+      "tissue_dice": 0.6391,
+      "boundary_dice": 0.5719,
+      "ncc": 0.0662,
+      "hausdorff_mean": 202.38,
+      "inlier_ratio": 0.0044,
+      "nmi": 1.0011,
+      "coverage": 0.3688,
+      "bg_coverage": 0.1772,
+      "qcs": 0.3757
+    },
+    "voltron": {
+      "tissue_dice": 0.1659,
+      "boundary_dice": 0.3631,
+      "ncc": 0.0236,
+      "hausdorff_mean": 691.89,
+      "inlier_ratio": 0.0084,
+      "nmi": 1.009,
+      "coverage": 0.072,
+      "bg_coverage": 0.0441,
+      "qcs": 0.0596
+    },
+    "simpleitk": {
+      "tissue_dice": 0.6617,
+      "boundary_dice": 0.5543,
+      "ncc": 0.0709,
+      "hausdorff_mean": 176.51,
+      "inlier_ratio": 0.0032,
+      "nmi": 1.0024,
+      "coverage": 0.6076,
+      "bg_coverage": 0.5071,
+      "qcs": 0.2299
+    },
+    "palom": null
+  },
+  "Rep2": {
+    "dhr": {
+      "tissue_dice": 0.597,
+      "boundary_dice": 0.5487,
+      "ncc": -0.027,
+      "hausdorff_mean": 312.37,
+      "inlier_ratio": 0.0038,
+      "nmi": 1.0006,
+      "coverage": 0.4118,
+      "bg_coverage": 0.2742,
+      "qcs": 0.2926
+    },
+    "voltron": {
+      "tissue_dice": 0.3948,
+      "boundary_dice": 0.3487,
+      "ncc": 0.0097,
+      "hausdorff_mean": 441.14,
+      "inlier_ratio": 0.0534,
+      "nmi": 1.0085,
+      "coverage": 0.1677,
+      "bg_coverage": 0.0803,
+      "qcs": 0.2196
+    },
+    "simpleitk": {
+      "tissue_dice": 0.6666,
+      "boundary_dice": 0.5108,
+      "ncc": 0.1331,
+      "hausdorff_mean": 291.53,
+      "inlier_ratio": 0.0028,
+      "nmi": 1.0073,
+      "coverage": 0.3191,
+      "bg_coverage": 0.0799,
+      "qcs": 0.391
+    },
+    "palom": null
+  }
+}
