@@ -25,7 +25,7 @@ ACCREDIT is a unified image registration framework for computational pathology t
 
 ```bash
 # Clone the repository
-git clone https://github.com/<your-username>/ACCREDIT.git
+git clone https://github.com/LeeZhou-bearway/ACCREDIT.git
 cd ACCREDIT
 
 # Create conda environment
@@ -110,7 +110,7 @@ ACCREDIT detects image modality through a multi-layer analysis pipeline:
    - **Channel count**: >5 channels in fluorescence → CODEX, otherwise → DAPI
 3. **Filename hints**: common IHC markers (P40, Ki67, CD3, CD8, PD-L1, HER2, CK, etc.) provide fast-path detection
 
-## Quality Composite Score (QCS v2)
+## Quality Composite Score (QCS)
 
 ACCREDIT evaluates registration quality using a composite metric:
 
@@ -136,7 +136,7 @@ Penalties: low tissue coverage and warped signal on background regions reduce th
 
 ## Benchmark
 
-Evaluated on 16 Xenium DAPI→HE samples at 4000px resolution (QCS v2):
+Evaluated on 16 Xenium DAPI→HE samples at 4000px resolution (QCS):
 
 | Method | Mean QCS | Samples |
 |--------|----------|---------|
@@ -170,7 +170,7 @@ ACCREDIT/
 │   └── xenium_reg.py             #   Xenium-specific registration
 │
 ├── quality/                      # Quality metrics
-│   └── quality_metrics.py        #   QCS v2 computation (tissue dice, boundary dice, etc.)
+│   └── quality_metrics.py        #   QCS computation (tissue dice, boundary dice, etc.)
 │
 ├── pipelines/                    # Modality-specific pipelines
 │   ├── boundary/                 #   Xenium parquet contours → HE
