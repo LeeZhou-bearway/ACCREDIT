@@ -200,6 +200,9 @@ The rescue agent diagnoses registration failures and iteratively applies alterna
 
 ## Citation
 
+**ACCREDIT: A Quality-Aware Agentic Engine for Cell-resolved Cross-modal Image Registration with Dynamic Iterative Tuning**
+Le Zhou&dagger;, Faming Zhao&dagger;, Tao Ren&dagger;, Shaun M. Goodyear, Chengyun Tang, Baiyi Li, Tingting Zhang, Yabing Chen, Rosalie C. Sears, Gordon B. Mills, Adel Kardosh, Zheng Xia*
+
 Paper in preparation. If you use ACCREDIT, please star this repository and check back for citation details.
 
 **Developers**: Le Zhou, Tao Ren — Oregon Health & Science University (OHSU)
