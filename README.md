@@ -1,8 +1,8 @@
 # ACCREDIT
 
-**Agent-based Cell-resolved Cross-modal Registration Engine with Dynamic Iterative Tuning**
+**A Quality-Aware Agentic Engine for Cell-resolved Cross-modal Image Registration with Dynamic Iterative Tuning**
 
-ACCREDIT is a unified image registration framework for computational pathology that automatically aligns multi-modal whole-slide images to H&E references. It supports six imaging modalities through a single entry point, with content-based modality detection, composite quality scoring, and an LLM-powered rescue agent for difficult cases.
+ACCREDIT is a quality-aware agentic registration framework for computational pathology that treats cross-modal registration as an adaptive decision process rather than a one-shot computation. It combines deterministic registration pipelines with a reference-free composite quality score (QCS) and an LLM-based rescue agent that autonomously diagnoses failure modes and selects recovery strategies. ACCREDIT supports six imaging modalities through a single unified entry point with content-based modality detection.
 
 <p align="center">
   <img src="assets/pipeline_overview.png" alt="ACCREDIT Pipeline Overview" width="100%">
@@ -202,7 +202,7 @@ The rescue agent diagnoses registration failures and iteratively applies alterna
 
 Paper in preparation. If you use ACCREDIT, please star this repository and check back for citation details.
 
-**Authors**: Le Zhou, Ren Tao — Oregon Health & Science University (OHSU)
+**Developers**: Le Zhou, Tao Ren — Oregon Health & Science University (OHSU)
 
 ## License
 
