@@ -231,6 +231,8 @@ python run_unified_agent.py --he HE.svs --moving IHC.svs --output_dir output/
 
 The rescue agent diagnoses registration failures and iteratively applies alternative strategies (enhancement, rotation search, channel selection, etc.) until quality improves.
 
+> **Note:** If you already have an Anthropic subscription (e.g., Claude Pro/Team/Enterprise), your existing API key works directly — no additional payment is required for the rescue agent.
+
 ## Citation
 
 **ACCREDIT: A Quality-Aware Agentic Engine for Cell-resolved Cross-modal Image Registration with Dynamic Iterative Tuning**
