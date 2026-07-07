@@ -54,10 +54,10 @@ prior method) on all 12 pairs with a mean margin of +0.180.
 
 ## 3. Component Attribution
 
-### 3.1 Directly ported from DeeperHistReg (DHR) [1]
+### 3.1 Directly ported from the literature [1]
 
 The non-rigid registration core is an algorithmically identical reimplementation of
-DHR's `instance_optimization_nonrigid_registration`, rewritten in ~100 lines of pure
+the original `instance_optimization_nonrigid_registration`, rewritten in ~100 lines of pure
 PyTorch for clarity and easier integration. No architectural changes were made.
 
 Ported components:
@@ -95,15 +95,15 @@ SuperGlue [3], which is faster and more accurate.
 
 ### 3.4 Original contributions (not in any prior work)
 
-1. **Iterative LightGlue+nonrigid alternation**. Unlike DHR's single-pass pipeline,
+1. **Iterative LightGlue+nonrigid alternation**. Unlike the original single-pass pipeline,
    we alternate affine re-estimation with nonrigid deformation for 3–6 rounds. This
    allows the affine stage to correct residual drift that accumulates during nonrigid
    optimization.
 
-2. **DHR + Demons hybrid recipe (`dhr3_demons300`)**. Three rounds of DHR-style
+2. **nonrigid + Demons hybrid recipe (`nr3_demons300`)**. Three rounds of Instance-optimization
    non-rigid followed by SimpleITK Demons (300 iterations). This specific chain
    — neither in DHR nor in VALIS — produces the largest QCS improvements on cross-modal
-   HE↔IHC pairs by combining DHR's coarse-to-fine field optimization with Demons'
+   HE↔IHC pairs by combining the original coarse-to-fine field optimization with Demons'
    symmetric diffeomorphic refinement.
 
 3. **Rescue mode**. The pipeline can accept a pre-warped IHC from any upstream method
@@ -122,15 +122,15 @@ Each recipe specifies the sequence of LightGlue-affine and non-rigid steps:
 
 | Recipe | Pseudocode | Wins (12 pairs) | Time |
 |---|---|---:|---:|
-| `iter4`          | 4× (LG + DHR-NR) | 1 | ~15-30 s |
-| `iter6`          | 6× (LG + DHR-NR) | 0 | ~25-45 s |
-| `dhr3_far2`      | 3× (LG + DHR-NR) → 2× (LG + Farneback) | 0 | ~20-40 s |
-| `dhr4_far2`      | 4× (LG + DHR-NR) → 2× (LG + Farneback) | 1 | ~25-45 s |
-| `dhr6_far4`      | 6× (LG + DHR-NR) → 4× (LG + Farneback) | 1 | ~40-60 s |
-| **`dhr3_demons300`** | **3× (LG + DHR-NR) → LG + Demons(300)** | **9** | **~25-45 s** |
+| `iter4`          | 4× (LG + NR) | 1 | ~15-30 s |
+| `iter6`          | 6× (LG + NR) | 0 | ~25-45 s |
+| `nr3_far2`      | 3× (LG + NR) → 2× (LG + Farneback) | 0 | ~20-40 s |
+| `nr4_far2`      | 4× (LG + NR) → 2× (LG + Farneback) | 1 | ~25-45 s |
+| `nr6_far4`      | 6× (LG + NR) → 4× (LG + Farneback) | 1 | ~40-60 s |
+| **`nr3_demons300`** | **3× (LG + NR) → LG + Demons(300)** | **9** | **~25-45 s** |
 | `auto`           | Run all; return max(QCS) | — | ~2–4 min |
 
-**Default recommendation**: `dhr3_demons300` wins 75% of single-recipe matches at
+**Default recommendation**: `nr3_demons300` wins 75% of single-recipe matches at
 ~3× the speed of `auto`.
 
 ---
@@ -200,12 +200,12 @@ on the 12-pair benchmark:
 | Configuration | Mean QCS |
 |---|---:|
 | LightGlue affine only (single pass) | 0.631 |
-| + DHR-NR (single pass) | 0.689 |
-| + iteration (LG + DHR-NR ×4) | 0.712 |
-| + Demons polish (LG ×3 + DHR-NR ×3 + Demons) | **0.863** |
+| + NR (single pass) | 0.689 |
+| + iteration (LG + NR ×4) | 0.712 |
+| + Demons polish (LG ×3 + NR ×3 + Demons) | **0.863** |
 | + recipe auto-selection (`auto`) | **0.886** |
 
-The single largest contributor is **Demons polish** (+0.151 over iterative LG+DHR-NR).
+The single largest contributor is **Demons polish** (+0.151 over iterative LG+NR).
 Recipe auto-selection adds a further +0.023 by picking the best-of-six per pair.
 
 ---
@@ -322,7 +322,7 @@ or use ALIKED (MIT).
 ├── METHODS.md                         — this file (for paper)
 ├── __init__.py
 ├── run_he_ihc.py                      — main CLI + Python API
-└── dhr_nonrigid.py                    — pure-PyTorch DHR non-rigid
+└── nonrigid_refinement.py                    — pure-PyTorch nonrigid refinement
 ```
 
 Benchmark data and outputs:

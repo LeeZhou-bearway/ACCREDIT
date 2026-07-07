@@ -1,7 +1,7 @@
-"""Unified HE-IHC pipeline (LightGlue + DHR + Demons + optional LLM Agent rescue).
+"""Unified HE-IHC pipeline (LightGlue + nonrigid refinement + Demons + optional LLM Agent rescue).
 
 Flow:
-  Stage 1 — dhr3_demons300: LightGlue → 3×DHR nonrigid → 300-iter Demons (30-60s).
+  Stage 1 — nr3_demons300: LightGlue → 3× nonrigid refinement → 300-iter Demons (30-60s).
   Stage 2 — LLM Agent rescue (optional, off by default):
             If QCS < AGENT_THRESHOLD, invoke Claude-based agent for autonomous
             diagnosis and re-registration. Enabled via --agent flag or
@@ -23,7 +23,7 @@ _ACCREDIT_ROOT = os.path.abspath(os.path.join(_HERE, '..', '..'))
 sys.path.insert(0, _ACCREDIT_ROOT)
 sys.path.insert(0, _HERE)
 
-RECIPE = 'dhr3_demons300'
+RECIPE = 'nr3_demons300'
 AGENT_THRESHOLD = float(os.environ.get('ACCREDIT_AGENT_THRESHOLD', '0.60'))
 
 
@@ -36,7 +36,7 @@ def _to_gray(im):
 
 
 def _run_registration(he_path, ihc_path, output_dir, log=print):
-    """Run dhr3_demons300 recipe."""
+    """Run nr3_demons300 recipe."""
     from run_he_ihc import load_svs, to_gray, register
     t0 = time.time()
     he_gray = to_gray(load_svs(he_path))
@@ -54,7 +54,7 @@ def _run_registration(he_path, ihc_path, output_dir, log=print):
     qcs_val = float(metrics['qcs']) if metrics else 0.0
     log(f'[REGISTER] recipe={chosen}  QCS@512={qcs_val:.3f}  ({elapsed:.1f}s)')
     return {
-        'stage': 'dhr3_demons300', 'recipe': chosen, 'qcs_512': qcs_val,
+        'stage': 'nr3_demons300', 'recipe': chosen, 'qcs_512': qcs_val,
         'metrics': {k: float(v) for k, v in (metrics or {}).items()
                     if isinstance(v, (int, float))},
         'warped_path': out_png, 'elapsed_seconds': round(elapsed, 1),
@@ -169,7 +169,7 @@ def run_unified_he_ihc(he_path, ihc_path, output_dir, log=print,
     history = []
     candidates = []
 
-    # ── Stage 1: dhr3_demons300 ────────────────────────────────────────────
+    # ── Stage 1: nr3_demons300 ────────────────────────────────────────────
     log('=' * 60)
     log(f'Stage 1 — {RECIPE}')
     log('=' * 60)
@@ -247,7 +247,7 @@ if __name__ == '__main__':
     import warnings; warnings.warn('Direct pipeline execution is for development only. Use run_unified_agent.py as the unified entry point.', stacklevel=1)
     import argparse
     p = argparse.ArgumentParser(
-        description='HE-IHC registration (LightGlue + DHR + Demons, optional LLM agent)')
+        description='HE-IHC registration (LightGlue + nonrigid + Demons, optional LLM agent)')
     p.add_argument('--he', required=True)
     p.add_argument('--ihc', required=True)
     p.add_argument('--output_dir', required=True)

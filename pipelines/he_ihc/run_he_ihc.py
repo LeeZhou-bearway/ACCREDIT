@@ -20,7 +20,7 @@ from PIL import Image
 Image.MAX_IMAGE_PIXELS = None
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from dhr_nonrigid import nonrigid_register, preprocess as dhr_pre, warp as dhr_warp_tensor
+from nonrigid_refinement import nonrigid_register, preprocess as nr_pre, warp as nr_warp_tensor
 from lightglue import LightGlue, SuperPoint
 from lightglue.utils import rbd
 
@@ -105,9 +105,9 @@ def lg_affine_step(he_gray, ihc_gray):
 
 
 # ── Nonrigid backends ───────────────────────────────────────────────────────
-def apply_dhr_nr(ihc_gray, he_gray, target_max=2048, **kw):
-    src, _ = dhr_pre(np.stack([ihc_gray] * 3, -1), target_max=target_max, device=device)
-    tgt, _ = dhr_pre(np.stack([he_gray] * 3, -1), target_max=target_max, device=device)
+def apply_nonrigid(ihc_gray, he_gray, target_max=2048, **kw):
+    src, _ = nr_pre(np.stack([ihc_gray] * 3, -1), target_max=target_max, device=device)
+    tgt, _ = nr_pre(np.stack([he_gray] * 3, -1), target_max=target_max, device=device)
     Hs, Ws = src.shape[-2:]; Ht, Wt = tgt.shape[-2:]
     Hm, Wm = max(Hs, Ht), max(Ws, Wt)
     if (Hs, Ws) != (Hm, Wm): src = F.pad(src, (0, Wm - Ws, 0, Hm - Hs))
@@ -117,7 +117,7 @@ def apply_dhr_nr(ihc_gray, he_gray, target_max=2048, **kw):
     df_full = F.interpolate(df.permute(0, 3, 1, 2), size=(Hh, Wh),
                              mode='bicubic', align_corners=False).permute(0, 2, 3, 1).contiguous()
     src_t = tc.from_numpy(ihc_gray.astype(np.float32) / 255.0).unsqueeze(0).unsqueeze(0).to(device)
-    return (dhr_warp_tensor(src_t, df_full)[0, 0].cpu().numpy() * 255).clip(0, 255).astype(np.uint8)
+    return (nr_warp_tensor(src_t, df_full)[0, 0].cpu().numpy() * 255).clip(0, 255).astype(np.uint8)
 
 
 def apply_farneback(ihc_gray, he_gray, winsize=21, iterations=10, levels=5, poly_n=7):
@@ -154,26 +154,26 @@ def recipe_iter(he, ihc, n_iter=4):
     aligned = ihc.copy()
     for _ in range(n_iter):
         aligned = lg_affine_step(he, aligned)
-        aligned = apply_dhr_nr(aligned, he)
+        aligned = apply_nonrigid(aligned, he)
     return aligned
 
 
-def recipe_dhr_far(he, ihc, n_dhr=3, n_far=2):
+def recipe_nr_far(he, ihc, n_dhr=3, n_far=2):
     aligned = ihc.copy()
     for _ in range(n_dhr):
         aligned = lg_affine_step(he, aligned)
-        aligned = apply_dhr_nr(aligned, he)
+        aligned = apply_nonrigid(aligned, he)
     for _ in range(n_far):
         aligned = lg_affine_step(he, aligned)
         aligned = apply_farneback(aligned, he)
     return aligned
 
 
-def recipe_dhr_demons(he, ihc, n_dhr=3, demons_iter=300, demons_smooth=1.5):
+def recipe_nr_demons(he, ihc, n_dhr=3, demons_iter=300, demons_smooth=1.5):
     aligned = ihc.copy()
     for _ in range(n_dhr):
         aligned = lg_affine_step(he, aligned)
-        aligned = apply_dhr_nr(aligned, he)
+        aligned = apply_nonrigid(aligned, he)
     aligned = lg_affine_step(he, aligned)
     aligned = apply_demons(aligned, he, iterations=demons_iter, smoothing=demons_smooth)
     return aligned
@@ -182,10 +182,10 @@ def recipe_dhr_demons(he, ihc, n_dhr=3, demons_iter=300, demons_smooth=1.5):
 RECIPES = {
     'iter4':          lambda he, ihc: recipe_iter(he, ihc, n_iter=4),
     'iter6':          lambda he, ihc: recipe_iter(he, ihc, n_iter=6),
-    'dhr3_far2':      lambda he, ihc: recipe_dhr_far(he, ihc, n_dhr=3, n_far=2),
-    'dhr4_far2':      lambda he, ihc: recipe_dhr_far(he, ihc, n_dhr=4, n_far=2),
-    'dhr6_far4':      lambda he, ihc: recipe_dhr_far(he, ihc, n_dhr=6, n_far=4),
-    'dhr3_demons300': lambda he, ihc: recipe_dhr_demons(he, ihc, n_dhr=3, demons_iter=300, demons_smooth=1.5),
+    'nr3_far2':      lambda he, ihc: recipe_nr_far(he, ihc, n_dhr=3, n_far=2),
+    'nr4_far2':      lambda he, ihc: recipe_nr_far(he, ihc, n_dhr=4, n_far=2),
+    'nr6_far4':      lambda he, ihc: recipe_nr_far(he, ihc, n_dhr=6, n_far=4),
+    'nr3_demons300': lambda he, ihc: recipe_nr_demons(he, ihc, n_dhr=3, demons_iter=300, demons_smooth=1.5),
 }
 
 

@@ -594,7 +594,7 @@ TOOLS = [
     {
         "name": "run_improved_fast",
         "description": (
-            "HE-IHC strategy-C fast pipeline (LightGlue + DHR-NR + SimpleITK Demons). "
+            "HE-IHC strategy-C fast pipeline (LightGlue + nonrigid + SimpleITK Demons). "
             "Registers raw HE/IHC SVS in one shot (30-60s on GPU). Returns QCS@512 and "
             "warped IHC path. Use this as the DEFAULT first tool for new HE-IHC pairs "
             "— it wins 9/12 cases in benchmarks. If QCS ≥ 0.70, call finish_registration; "
@@ -608,8 +608,8 @@ TOOLS = [
                 "output_dir": {"type": "string", "description": "Output directory."},
                 "recipe": {
                     "type": "string",
-                    "description": "Recipe: 'dhr3_demons300' (default, best general), "
-                                   "'iter4' (fastest), 'dhr6_far4' (hard cases).",
+                    "description": "Recipe: 'nr3_demons300' (default, best general), "
+                                   "'iter4' (fastest), 'nr6_far4' (hard cases).",
                 },
             },
             "required": ["he_path", "ihc_path", "output_dir"],
@@ -619,7 +619,7 @@ TOOLS = [
         "name": "run_improved_auto",
         "description": (
             "HE-IHC strategy-C auto pipeline — tries all 6 recipes (iter4, iter6, "
-            "dhr3_far2, dhr4_far2, dhr6_far4, dhr3_demons300) and returns the best "
+            "nr3_far2, nr4_far2, nr6_far4, nr3_demons300) and returns the best "
             "QCS@512. Slower (2-4 min) but most likely to recover hard cases. Use "
             "after run_improved_fast if QCS was < 0.70."
         ),
@@ -638,7 +638,7 @@ TOOLS = [
         "description": (
             "Rescue mode — refine an existing warped IHC (e.g. produced by classical "
             "tool chain: run_similarity_registration + run_boundary_correction, or a "
-            "prior pipeline output) using LightGlue affine refinement + DHR-NR + Demons. "
+            "prior pipeline output) using LightGlue affine refinement + nonrigid + Demons. "
             "Useful when classical tools produced a reasonable alignment but local fit "
             "needs improvement."
         ),
@@ -650,7 +650,7 @@ TOOLS = [
                                      "description": "Path to existing warped IHC PNG/TIF."},
                 "output_dir": {"type": "string"},
                 "recipe": {"type": "string",
-                           "description": "Default 'dhr3_demons300'."},
+                           "description": "Default 'nr3_demons300'."},
             },
             "required": ["he_path", "warped_ihc_path", "output_dir"],
         },
@@ -1099,8 +1099,8 @@ def _load_improved_pipeline():
 
 
 def _tool_run_improved_fast(he_path: str, ihc_path: str, output_dir: str,
-                             recipe: str = 'dhr3_demons300') -> str:
-    """Fast deterministic HE-IHC: LightGlue + DHR-NR + Demons (single recipe).
+                             recipe: str = 'nr3_demons300') -> str:
+    """Fast deterministic HE-IHC: LightGlue + nonrigid + Demons (single recipe).
     30-60s on GPU. Returns QCS + warped path for the agent to inspect."""
     import time
     from PIL import Image as _PIL
@@ -1160,7 +1160,7 @@ def _tool_run_improved_auto(he_path: str, ihc_path: str, output_dir: str) -> str
 
 
 def _tool_run_improved_rescue(he_path: str, warped_ihc_path: str, output_dir: str,
-                               recipe: str = 'dhr3_demons300') -> str:
+                               recipe: str = 'nr3_demons300') -> str:
     """Rescue: refine an existing warped IHC (e.g. produced by classical tool chain)."""
     import time
     import cv2 as _cv2

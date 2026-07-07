@@ -1,12 +1,6 @@
-"""DHR-style instance-optimization nonrigid registration (pure PyTorch).
+"""Instance-optimization nonrigid registration (pure PyTorch).
 
-Reimplementation of the non-rigid core from DeeperHistReg (Wodzinski et al. 2024),
-specifically:
-  - /src/deeperhistreg/dhr_registration/dhr_building_blocks/instance_optimization.py
-  - /src/deeperhistreg/dhr_registration/dhr_building_blocks/cost_functions.py (ncc_local)
-  - /src/deeperhistreg/dhr_registration/dhr_building_blocks/regularizers.py (diffusion_relative)
-
-No deep learning model; pure geometric optimization of a per-pixel displacement field
+Pure geometric optimization of a per-pixel displacement field
 via Adam on a multi-resolution Gaussian pyramid.
 """
 import numpy as np

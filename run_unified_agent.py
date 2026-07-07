@@ -334,8 +334,8 @@ def run_codex(he_path, moving_path, output_dir, extra, log=print):
 
 
 def run_he_ihc(he_path, moving_path, output_dir, extra, log=print):
-    """Run HE-IHC pipeline (LightGlue + DHR nonrigid + Demons)."""
-    log('Pipeline: HE-IHC (LightGlue + DHR + Demons)')
+    """Run HE-IHC pipeline (LightGlue + nonrigid refinement + Demons)."""
+    log('Pipeline: HE-IHC (LightGlue + nonrigid + Demons)')
     sys.path.insert(0, os.path.join(_PROJECT_ROOT, 'pipelines/he_ihc'))
     from run_unified_he_ihc import run_unified_he_ihc
     return run_unified_he_ihc(he_path, moving_path, output_dir, log=log)
@@ -432,7 +432,7 @@ MODALITY_DESCRIPTIONS = {
     'boundary': 'Boundary (Xenium parquet contours → HE)',
     'dapi':     'DAPI (fluorescence morphology → HE)',
     'codex':    'CODEX (multi-channel protein fluorescence → HE)',
-    'he-ihc':   'HE-IHC (IHC adjacent section → HE, LightGlue + DHR + Demons)',
+    'he-ihc':   'HE-IHC (IHC adjacent section → HE, LightGlue + nonrigid + Demons)',
     'he-he':    'HE-HE (cross-platform / cross-scanner HE → HE)',
     'st-he':    'ST-HE (spatial transcriptomics → HE)',
     'senior':   'Senior (hard partial-match Xenium, multi-step)',

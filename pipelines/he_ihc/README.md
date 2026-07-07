@@ -11,7 +11,7 @@ suffice, but always having the agent's flexibility available when needed.
 The pipeline integrates three best-in-class components:
 1. **SuperPoint + LightGlue** — pretrained cross-modal feature matching (MagicLeap
    + CVG weights, no fine-tuning needed)
-2. **DHR-style instance-optimization nonrigid** — per-pixel displacement field
+2. **Instance-optimization instance-optimization nonrigid** — per-pixel displacement field
    optimized by Adam with local-NCC cost and diffusion regularization
    (reimplemented from [DeeperHistReg](https://github.com/MWod/DeeperHistReg) in
    pure PyTorch)
@@ -34,8 +34,8 @@ Input: raw HE.svs + raw IHC.svs
              │
              ▼
   ┌────────────────────────────────────┐
-  │  STAGE 1 — FAST                    │  Single recipe: dhr3_demons300
-  │  LightGlue + DHR-NR + Demons       │  (LG×3 + DHR-NR×3 + Demons 300 iter)
+  │  STAGE 1 — FAST                    │  Single recipe: nr3_demons300
+  │  LightGlue + NR + Demons       │  (LG×3 + NR×3 + Demons 300 iter)
   │  ≈ 30–60 s on GPU                  │
   └────────────────┬───────────────────┘
                    │
@@ -57,7 +57,7 @@ Input: raw HE.svs + raw IHC.svs
   │  STAGE 3 — LLM AGENT (rescue)      │  Claude agent with full ACCREDIT
   │  Adaptive tool orchestration       │  tool suite, including the
   │  + refine-agent-output             │  improved deterministic tools.
-  │  ≈ minutes, Anthropic API          │  Refines its own output with DHR+Demons.
+  │  ≈ minutes, Anthropic API          │  Refines its own output with nonrigid+Demons.
   └────────────────┬───────────────────┘
                    │
                    ▼
@@ -124,9 +124,9 @@ python pipelines/he_ihc/run_unified_he_ihc.py \
 ```bash
 python pipelines/he_ihc/run_he_ihc.py \
     --he HE.svs --ihc IHC.svs --output_dir out/ \
-    --recipe dhr3_demons300
+    --recipe nr3_demons300
 ```
-Recipes: `iter4`, `iter6`, `dhr3_far2`, `dhr4_far2`, `dhr6_far4`, `dhr3_demons300`, `auto`.
+Recipes: `iter4`, `iter6`, `nr3_far2`, `nr4_far2`, `nr6_far4`, `nr3_demons300`, `auto`.
 
 ### Legacy agent-only mode
 ```bash
@@ -143,7 +143,7 @@ Forces the old LLM-agent path (still uses the improved tools internally).
 |---|---|---|
 | `ACCREDIT_FAST_PASS` | `0.70` | QCS threshold to skip stages 2+3 |
 | `ACCREDIT_AUTO_PASS` | `0.60` | QCS threshold to skip stage 3 |
-| `ACCREDIT_FAST_RECIPE` | `dhr3_demons300` | Recipe for stage 1 |
+| `ACCREDIT_FAST_RECIPE` | `nr3_demons300` | Recipe for stage 1 |
 | `ACCREDIT_SKIP_AGENT` | `0` | Set `1` to disable stage 3 entirely |
 | `ACCREDIT_ALWAYS_ALL` | `0` | Set `1` to run all 3 stages and keep best |
 | `ACCREDIT_HEIHC_MODE` | `unified` | Set `agent` for legacy agent-only mode |
@@ -172,15 +172,15 @@ All recipes alternate LightGlue-affine refinement with a nonrigid backend:
 
 | Recipe | Composition | Wins (12 pairs) | Time |
 |---|---|---:|---:|
-| `iter4`          | 4× (LG + DHR-NR) | 1 | ~15-30 s |
-| `iter6`          | 6× (LG + DHR-NR) | 0 | ~25-45 s |
-| `dhr3_far2`      | 3× (LG + DHR-NR) → 2× (LG + Farneback) | 0 | ~20-40 s |
-| `dhr4_far2`      | 4× (LG + DHR-NR) → 2× (LG + Farneback) | 1 | ~25-45 s |
-| `dhr6_far4`      | 6× (LG + DHR-NR) → 4× (LG + Farneback) | 1 | ~40-60 s |
-| **`dhr3_demons300`** | **3× (LG + DHR-NR) → LG + Demons(300)** | **9** | **~25-45 s** |
+| `iter4`          | 4× (LG + NR) | 1 | ~15-30 s |
+| `iter6`          | 6× (LG + NR) | 0 | ~25-45 s |
+| `nr3_far2`      | 3× (LG + NR) → 2× (LG + Farneback) | 0 | ~20-40 s |
+| `nr4_far2`      | 4× (LG + NR) → 2× (LG + Farneback) | 1 | ~25-45 s |
+| `nr6_far4`      | 6× (LG + NR) → 4× (LG + Farneback) | 1 | ~40-60 s |
+| **`nr3_demons300`** | **3× (LG + NR) → LG + Demons(300)** | **9** | **~25-45 s** |
 | `auto`           | Run all 6; return max QCS | — | ~2-4 min |
 
-`dhr3_demons300` is the default — wins 75% of single-recipe benchmarks.
+`nr3_demons300` is the default — wins 75% of single-recipe benchmarks.
 
 ---
 
@@ -202,7 +202,7 @@ Low-level components:
 ```python
 from pipelines.he_ihc.run_he_ihc import (
     load_svs, to_gray, register,                    # high-level
-    lg_affine_step, apply_dhr_nr,                   # building blocks
+    lg_affine_step, apply_nonrigid,                   # building blocks
     apply_farneback, apply_demons,
 )
 
@@ -213,7 +213,7 @@ ihc = to_gray(load_svs('IHC.svs'))
 aligned = ihc
 for _ in range(3):
     aligned = lg_affine_step(he, aligned)
-    aligned = apply_dhr_nr(aligned, he)
+    aligned = apply_nonrigid(aligned, he)
 aligned = apply_demons(aligned, he, iterations=300)
 ```
 
@@ -263,7 +263,7 @@ pipelines/he_ihc/
 ├── METHODS.md                         ← paper-ready methods document
 ├── run_he_ihc.py                      ← single-recipe + Python API
 ├── run_unified_he_ihc.py              ← Strategy C cascade (fast → auto → agent)
-└── dhr_nonrigid.py                    ← pure-PyTorch DHR nonrigid implementation
+└── nonrigid_refinement.py                    ← pure-PyTorch nonrigid refinement implementation
 ```
 
 Related files in the broader ACCREDIT codebase:

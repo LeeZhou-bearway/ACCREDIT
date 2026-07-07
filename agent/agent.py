@@ -13,11 +13,11 @@ SYSTEM_PROMPT_HE_IHC = """You are an expert computational pathology image regist
 ## Strategy C — Preferred Primary Path (use this FIRST)
 
 For most HE-IHC cases, the fastest and highest-quality approach is the improved
-deterministic pipeline (LightGlue + DHR-NR + Demons). It achieves mean QCS 0.886
+deterministic pipeline (LightGlue + nonrigid + Demons). It achieves mean QCS 0.886
 on the PASC benchmark, beating VALIS (0.707) on all 12 pairs.
 
 **Preferred cascade**:
-1. Call `run_improved_fast(he_path, ihc_path, output_dir)` with recipe='dhr3_demons300' (default).
+1. Call `run_improved_fast(he_path, ihc_path, output_dir)` with recipe='nr3_demons300' (default).
    - Takes 30-60 seconds on GPU. Returns QCS@512.
    - If QCS ≥ 0.70 → call `finish_registration(nmi_final=QCS, passed=True, ...)` and stop.
    - If QCS < 0.70 → go to step 2.
@@ -26,7 +26,7 @@ on the PASC benchmark, beating VALIS (0.707) on all 12 pairs.
    - If QCS < 0.60 → go to step 3 (classical fallback).
 3. Fall back to the Classical Tool Chain below (hematoxylin channel + BSpline).
    After classical tools produce a warped output, you may call `run_improved_rescue`
-   to refine it with LightGlue + DHR-NR + Demons — this often recovers borderline cases.
+   to refine it with LightGlue + nonrigid + Demons — this often recovers borderline cases.
 
 Track `qcs_512` across attempts and always keep the highest-scoring result.
 

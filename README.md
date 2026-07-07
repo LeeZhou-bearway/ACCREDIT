@@ -15,7 +15,7 @@ ACCREDIT is a quality-aware agentic registration framework for computational pat
 | **Boundary** | Xenium nucleus parquet → HE | Contour-mask affine + block refinement |
 | **DAPI** | DAPI/morphology fluorescence → HE | ROI flip search + phase correlation |
 | **CODEX** | Multi-channel protein fluorescence → HE | QCS-based channel selection + ROI registration |
-| **HE-IHC** | IHC adjacent section → HE | LightGlue + DHR non-rigid + Demons |
+| **HE-IHC** | IHC adjacent section → HE | LightGlue + nonrigid refinement + Demons |
 | **HE-HE** | Cross-platform HE → HE | Feature matching + Similarity + BSpline |
 | **ST-HE** | Spatial transcriptomics → HE | Spot-pattern alignment |
 
@@ -85,7 +85,7 @@ ACCREDIT — Modality Detection Report
   Moving:      data/sample_P40.svs
 
   Detected modality:  he-ihc
-  Description:        HE-IHC (IHC adjacent section → HE, LightGlue + DHR + Demons)
+  Description:        HE-IHC (IHC adjacent section → HE, LightGlue + nonrigid + Demons)
 
   Image analysis:
     Imaging type:   brightfield
@@ -176,7 +176,7 @@ ACCREDIT/
 │   ├── boundary/                 #   Xenium parquet contours → HE
 │   ├── dapi/                     #   DAPI fluorescence → HE
 │   ├── codex/                    #   CODEX multi-channel → HE
-│   ├── he_ihc/                   #   IHC adjacent section → HE (LightGlue + DHR + Demons)
+│   ├── he_ihc/                   #   IHC adjacent section → HE (LightGlue + nonrigid + Demons)
 │   ├── he_he/                    #   Cross-platform HE → HE
 │   ├── fluo_general/             #   General fluorescence utilities
 │   ├── senior/                   #   Hard partial-match samples (multi-step)
