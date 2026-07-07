@@ -71,26 +71,7 @@ You can confirm (`Y`), abort (`n`), or override by typing a modality name (e.g.,
 
 ### Python API
 
-```python
-from run_unified_agent import run_unified
-
-# Auto-detect modality
-result = run_unified(
-    he_path='data/HE.svs',
-    moving_path='data/IHC_P40.svs',
-    output_dir='output/',
-)
-print(f"QCS: {result.get('qcs')}")
-
-# Explicit modality, non-interactive
-result = run_unified(
-    he_path='data/HE.tif',
-    moving_path='data/morphology.ome.tif',
-    output_dir='output/',
-    mode='dapi',
-    interactive=False,
-)
-```
+For Python API usage, see the tutorial scripts in [`examples/`](examples/).
 
 ## Tutorials
 
