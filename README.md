@@ -55,23 +55,14 @@ python run_unified_agent.py \
     --mode dapi \
     --output_dir output/
 
-# Boundary mode with parquet
+# Boundary mode with parquet (Xenium)
 python run_unified_agent.py \
     --he data/he_image.ome.tif \
     --parquet data/nucleus_boundaries.parquet \
     --output_dir output/
-
-# Batch mode (skips interactive confirmation)
-python run_unified_agent.py \
-    --he data/HE_1.svs data/HE_2.svs \
-    --moving data/IHC_1.svs data/IHC_2.svs \
-    --output_dir output/
-
-# Skip confirmation with -y flag
-python run_unified_agent.py \
-    --he data/HE.svs --moving data/IHC.svs \
-    --output_dir output/ -y
 ```
+
+For more CLI examples (batch mode, skip confirmation, LLM rescue, sample directory), see [`examples/CLI_Usage.sh`](examples/CLI_Usage.sh).
 
 ### Interactive Modality Confirmation
 
@@ -128,7 +119,8 @@ Step-by-step tutorials are available in the [`examples/`](examples/) directory:
 
 | Tutorial | Description |
 |----------|-------------|
-| [Tutorial_DAPI_to_HE.py](examples/Tutorial_DAPI_to_HE.py) | DAPI fluorescence → HE registration (auto-detect, batch, sample directory) |
+| [CLI_Usage.sh](examples/CLI_Usage.sh) | All command-line usage examples (auto-detect, batch, rescue, etc.) |
+| [Tutorial_DAPI_to_HE.py](examples/Tutorial_DAPI_to_HE.py) | DAPI fluorescence → HE registration (Python API) |
 | [Tutorial_IHC_to_HE.py](examples/Tutorial_IHC_to_HE.py) | IHC adjacent section → HE (filename/content-based detection) |
 | [Tutorial_Boundary_to_HE.py](examples/Tutorial_Boundary_to_HE.py) | Xenium cell boundary parquet → HE (replaces Xenium Explorer) |
 
