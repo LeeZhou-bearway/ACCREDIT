@@ -41,28 +41,7 @@ pip install torch torchvision   # for LightGlue (HE-IHC pipeline)
 
 ACCREDIT uses a single unified entry point. The system first analyzes image content to detect the modality, reports the result, and waits for user confirmation before proceeding.
 
-```bash
-# Auto-detect modality (recommended)
-python run_unified_agent.py \
-    --he data/HE_image.svs \
-    --moving data/moving_image.svs \
-    --output_dir output/
-
-# Explicit modality
-python run_unified_agent.py \
-    --he data/HE_image.tif \
-    --moving data/morphology.ome.tif \
-    --mode dapi \
-    --output_dir output/
-
-# Boundary mode with parquet (Xenium)
-python run_unified_agent.py \
-    --he data/he_image.ome.tif \
-    --parquet data/nucleus_boundaries.parquet \
-    --output_dir output/
-```
-
-For more CLI examples (batch mode, skip confirmation, LLM rescue, sample directory), see [`examples/CLI_Usage.sh`](examples/CLI_Usage.sh).
+See [`examples/CLI_Usage.sh`](examples/CLI_Usage.sh) for complete command-line usage examples including auto-detect, explicit modality, batch mode, and LLM rescue.
 
 ### Interactive Modality Confirmation
 
