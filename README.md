@@ -99,6 +99,39 @@ Proceed with this modality? [Y/n/modality name to override]:
 
 You can confirm (`Y`), abort (`n`), or override by typing a modality name (e.g., `he-he`).
 
+### Python API
+
+```python
+from run_unified_agent import run_unified
+
+# Auto-detect modality
+result = run_unified(
+    he_path='data/HE.svs',
+    moving_path='data/IHC_P40.svs',
+    output_dir='output/',
+)
+print(f"QCS: {result.get('qcs')}")
+
+# Explicit modality, non-interactive
+result = run_unified(
+    he_path='data/HE.tif',
+    moving_path='data/morphology.ome.tif',
+    output_dir='output/',
+    mode='dapi',
+    interactive=False,
+)
+```
+
+## Tutorials
+
+Step-by-step tutorials are available in the [`examples/`](examples/) directory:
+
+| Tutorial | Description |
+|----------|-------------|
+| [Tutorial_DAPI_to_HE.py](examples/Tutorial_DAPI_to_HE.py) | DAPI fluorescence → HE registration (auto-detect, batch, sample directory) |
+| [Tutorial_IHC_to_HE.py](examples/Tutorial_IHC_to_HE.py) | IHC adjacent section → HE (filename/content-based detection) |
+| [Tutorial_Boundary_to_HE.py](examples/Tutorial_Boundary_to_HE.py) | Xenium cell boundary parquet → HE (replaces Xenium Explorer) |
+
 ## Modality Detection
 
 ACCREDIT detects image modality through a multi-layer analysis pipeline:
