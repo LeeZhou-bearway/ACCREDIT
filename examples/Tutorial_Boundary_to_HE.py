@@ -13,7 +13,17 @@ The pipeline:
   2. Performs global affine alignment via feature matching
   3. Applies local block refinement
   4. Transforms all boundary polygons into H&E image space
-  5. Evaluates quality using cell-level Dice coefficient
+  5. Evaluates quality using an overlap Dice coefficient (internal QC gate)
+
+Note on metrics:
+  `result['dice']` is a *filled-mask overlap* Dice (the warped cell-boundary
+  mask vs the H&E tissue mask). It is the pipeline's internal QC / gating
+  score and is intentionally loose, so it reads higher than a boundary-level
+  metric. It is NOT the cell-boundary ("cell Dice") number reported in the
+  paper (Fig. 3c), which is a stricter contour/cell-level metric computed by a
+  separate evaluation (ACCREDIT vs the 10x alignment, cross-checked with
+  CellViT). Do not compare `result['dice']` directly against the paper's cell
+  Dice — they are different metrics.
 """
 import os
 import sys
@@ -36,7 +46,8 @@ def example_single():
 
     if result:
         dice = result.get('dice', 'N/A')
-        print(f"Cell Dice: {dice}")
+        # Overlap Dice = internal QC gate, not the paper's cell Dice (see module docstring).
+        print(f"Overlap Dice (QC): {dice}")
 
 
 # ── Example 2: With cell boundaries ───────────────────────────────────────
@@ -56,7 +67,7 @@ def example_with_cell_parquet():
     )
 
     if result:
-        print(f"Dice: {result.get('dice', 'N/A')}")
+        print(f"Overlap Dice (QC): {result.get('dice', 'N/A')}")
 
 
 # ── Example 3: Batch processing ───────────────────────────────────────────
@@ -94,7 +105,7 @@ def example_batch():
     print("\nBatch Summary:")
     for name, r in results.items():
         dice = r.get('dice', 'FAILED') if r else 'FAILED'
-        print(f"  {name}: Dice={dice}")
+        print(f"  {name}: Overlap Dice (QC)={dice}")
 
 
 if __name__ == '__main__':
